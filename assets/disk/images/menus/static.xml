@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="static.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Símbolo 3 instancia 10000" x="0" y="0" width="1327" height="748"/>
+	<SubTexture name="Símbolo 3 instancia 10001" x="1327" y="0" width="1327" height="748"/>
+	<SubTexture name="Símbolo 3 instancia 10002" x="2654" y="0" width="1327" height="748"/>
+</TextureAtlas>

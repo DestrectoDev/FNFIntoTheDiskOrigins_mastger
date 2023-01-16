@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pause bf.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BF DE PAUSA0000" x="0" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0001" x="0" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0002" x="0" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0003" x="0" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0004" x="515" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0005" x="515" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0006" x="515" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0007" x="1030" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0008" x="1030" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0009" x="1030" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0010" x="1030" y="0" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0011" x="0" y="351" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0012" x="0" y="351" width="515" height="351"/>
+	<SubTexture name="BF DE PAUSA0013" x="0" y="351" width="515" height="351"/>
+</TextureAtlas>

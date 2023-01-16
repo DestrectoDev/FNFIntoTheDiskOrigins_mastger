@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="itemBox.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="idle0000" x="0" y="0" width="594" height="594"/>
+	<SubTexture name="idle0001" x="0" y="0" width="594" height="594"/>
+	<SubTexture name="idle0002" x="594" y="0" width="594" height="594"/>
+	<SubTexture name="idle0003" x="594" y="0" width="594" height="594"/>
+	<SubTexture name="idle0004" x="1188" y="0" width="594" height="594"/>
+	<SubTexture name="idle0005" x="1188" y="0" width="594" height="594"/>
+	<SubTexture name="idle0006" x="1782" y="0" width="594" height="594"/>
+	<SubTexture name="idle0007" x="1782" y="0" width="594" height="594"/>
+	<SubTexture name="idle0008" x="2376" y="0" width="594" height="594"/>
+	<SubTexture name="idle0009" x="2376" y="0" width="594" height="594"/>
+	<SubTexture name="idle0010" x="2970" y="0" width="594" height="594"/>
+	<SubTexture name="idle0011" x="2970" y="0" width="594" height="594"/>
+	<SubTexture name="idle0012" x="0" y="0" width="594" height="594"/>
+	<SubTexture name="idle0013" x="0" y="0" width="594" height="594"/>
+	<SubTexture name="seleccion0000" x="0" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0001" x="0" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0002" x="604" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0003" x="604" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0004" x="1208" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0005" x="1208" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0006" x="1812" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0007" x="1812" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0008" x="2416" y="594" width="604" height="610"/>
+	<SubTexture name="seleccion0009" x="2416" y="594" width="604" height="610"/>
+</TextureAtlas>

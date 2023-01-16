@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="padLock.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="idle0000" x="0" y="0" width="153" height="191"/>
+	<SubTexture name="idle0001" x="0" y="0" width="153" height="191"/>
+	<SubTexture name="idle0002" x="0" y="0" width="153" height="191"/>
+	<SubTexture name="idle0003" x="0" y="0" width="153" height="191"/>
+	<SubTexture name="idle0004" x="0" y="0" width="153" height="191"/>
+	<SubTexture name="idle0005" x="153" y="0" width="153" height="191"/>
+	<SubTexture name="idle0006" x="153" y="0" width="153" height="191"/>
+	<SubTexture name="idle0007" x="153" y="0" width="153" height="191"/>
+	<SubTexture name="idle0008" x="153" y="0" width="153" height="191"/>
+	<SubTexture name="idle0009" x="153" y="0" width="153" height="191"/>
+	<SubTexture name="romper0000" x="306" y="0" width="382" height="378"/>
+	<SubTexture name="romper0001" x="306" y="0" width="382" height="378"/>
+	<SubTexture name="romper0002" x="688" y="0" width="382" height="378"/>
+	<SubTexture name="romper0003" x="688" y="0" width="382" height="378"/>
+	<SubTexture name="romper0004" x="306" y="0" width="382" height="378"/>
+	<SubTexture name="romper0005" x="306" y="0" width="382" height="378"/>
+	<SubTexture name="romper0006" x="1070" y="0" width="382" height="378"/>
+	<SubTexture name="romper0007" x="1070" y="0" width="382" height="378"/>
+	<SubTexture name="romper0008" x="1452" y="0" width="382" height="378"/>
+	<SubTexture name="romper0009" x="1452" y="0" width="382" height="378"/>
+	<SubTexture name="romper0010" x="0" y="378" width="382" height="378"/>
+	<SubTexture name="romper0011" x="0" y="378" width="382" height="378"/>
+	<SubTexture name="romper0012" x="382" y="378" width="382" height="378"/>
+	<SubTexture name="romper0013" x="382" y="378" width="382" height="378"/>
+	<SubTexture name="romper0014" x="764" y="378" width="382" height="378"/>
+	<SubTexture name="romper0015" x="764" y="378" width="382" height="378"/>
+	<SubTexture name="romper0016" x="764" y="378" width="382" height="378"/>
+	<SubTexture name="romper0017" x="764" y="378" width="382" height="378"/>
+	<SubTexture name="romper0018" x="1146" y="378" width="382" height="378"/>
+	<SubTexture name="romper0019" x="1528" y="378" width="382" height="378"/>
+	<SubTexture name="romper0020" x="0" y="756" width="382" height="378"/>
+	<SubTexture name="romper0021" x="382" y="756" width="382" height="378"/>
+	<SubTexture name="romper0022" x="764" y="756" width="382" height="378"/>
+	<SubTexture name="romper0023" x="1146" y="756" width="382" height="378"/>
+	<SubTexture name="romper0024" x="1528" y="756" width="382" height="378"/>
+	<SubTexture name="romper0025" x="0" y="1134" width="382" height="378"/>
+	<SubTexture name="romper0026" x="382" y="1134" width="382" height="378"/>
+	<SubTexture name="romper0027" x="764" y="1134" width="382" height="378"/>
+	<SubTexture name="romper0028" x="1146" y="1134" width="382" height="378"/>
+	<SubTexture name="romper0029" x="1528" y="1134" width="382" height="378"/>
+</TextureAtlas>

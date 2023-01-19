@@ -36,6 +36,12 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import openfl.Assets;
 
+import lime.app.Application;
+import lime.graphics.Image;
+
+#if VIDEOS_ALLOWED
+import vlc.MP4Handler;
+#end
 using StringTools;
 typedef TitleData =
 {
@@ -84,6 +90,36 @@ class TitleState extends MusicBeatState
 
 	public static var updateVersion:String = '';
 
+	public function startVideo(name:String)
+	{
+		#if VIDEOS_ALLOWED
+		// inCutscene = true;
+
+		var filepath:String = Paths.video(name);
+		#if sys
+		if(!FileSystem.exists(filepath))
+		#else
+		if(!OpenFlAssets.exists(filepath))
+		#end
+		{
+			FlxG.log.warn('Couldnt find video file: ' + name);
+			return;
+		}
+
+		var video:MP4Handler = new MP4Handler();
+		video.playVideo(filepath);
+		video.finishCallback = function()
+		{
+			MusicBeatState.switchState(new SelectState());
+			return;
+		}
+		#else
+		FlxG.log.warn('Platform not supported!');
+		return;
+		#end
+	}
+	var app = Application.current.window;
+ 
 	override public function create():Void
 	{
 		Paths.clearStoredMemory();
@@ -94,6 +130,8 @@ class TitleState extends MusicBeatState
 		#end
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
+
+		app.setIcon(Image.fromFile("newIcon.png"));
 
 		//trace(path, FileSystem.exists(path));
 
@@ -157,28 +195,6 @@ class TitleState extends MusicBeatState
 
 		Highscore.load();
 
-		// IGNORE THIS!!!
-		titleJSON = Json.parse(Paths.getTextFromFile('images/gfDanceTitle.json'));
-
-		#if TITLE_SCREEN_EASTER_EGG
-		if (FlxG.save.data.psychDevsEasterEgg == null) FlxG.save.data.psychDevsEasterEgg = ''; //Crash prevention
-		switch(FlxG.save.data.psychDevsEasterEgg.toUpperCase())
-		{
-			case 'SHADOW':
-				titleJSON.gfx += 210;
-				titleJSON.gfy += 40;
-			case 'RIVER':
-				titleJSON.gfx += 100;
-				titleJSON.gfy += 20;
-			case 'SHUBS':
-				titleJSON.gfx += 160;
-				titleJSON.gfy -= 10;
-			case 'BBPANZU':
-				titleJSON.gfx += 45;
-				titleJSON.gfy += 100;
-		}
-		#end
-
 		if(!initialized)
 		{
 			if(FlxG.save.data != null && FlxG.save.data.fullscreen)
@@ -195,29 +211,32 @@ class TitleState extends MusicBeatState
 			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
 		}
 
-		FlxG.mouse.visible = false;
-		#if FREEPLAY
-		MusicBeatState.switchState(new FreeplayState());
-		#elseif CHARTING
-		MusicBeatState.switchState(new ChartingState());
-		#else
-		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
-			FlxTransitionableState.skipNextTransIn = true;
-			FlxTransitionableState.skipNextTransOut = true;
-			MusicBeatState.switchState(new FlashingState());
-		} else {
-			if (initialized)
-				startIntro();
-			else
-			{
-				new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					startIntro();
-				});
-			}
-		}
-		#end
+		// FlxG.mouse.visible = false;
+		// #if FREEPLAY
+		// MusicBeatState.switchState(new FreeplayState());
+		// #elseif CHARTING
+		// MusicBeatState.switchState(new ChartingState());
+		// #else
+		// if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
+		// 	FlxTransitionableState.skipNextTransIn = true;
+		// 	FlxTransitionableState.skipNextTransOut = true;
+		// 	MusicBeatState.switchState(new FlashingState());
+		// } else {
+		// 	if (initialized)
+		// 		startIntro();
+		// 	else
+		// 	{
+		// 		new FlxTimer().start(1, function(tmr:FlxTimer)
+		// 		{
+		// 			startIntro();
+		// 		});
+		// 	}
+		// }
+		// #end
+
+		startVideo("start");
 	}
+
 
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;

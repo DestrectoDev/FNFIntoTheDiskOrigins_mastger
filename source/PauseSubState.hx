@@ -57,23 +57,23 @@ class PauseSubState extends MusicBeatSubstate
 		add(bg);
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
-		levelInfo.text += PlayState.SONG.song;
+		levelInfo.text += ((PlayState.SONG.player2 == "nmi") ? "地獄の苦しみ" : PlayState.SONG.song);
 		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
+		levelInfo.setFormat(Paths.font(((PlayState.SONG.player2 == "nmi") ? 'AlibabaSansJP-Bold.ttf' : 'vcr.ttf')), 32);
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
 		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
-		levelDifficulty.text += CoolUtil.difficultyFromNumber(PlayState.storyDifficulty);
+		levelDifficulty.text += ((PlayState.SONG.player2 == "nmi") ? "[難しい]" : CoolUtil.difficultyFromNumber(PlayState.storyDifficulty));
 		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
+		levelDifficulty.setFormat(Paths.font(((PlayState.SONG.player2 == "nmi") ? 'AlibabaSansJP-Bold.ttf' : 'vcr.ttf')), 32);
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
 		var levelDeaths:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
-		levelDeaths.text += "Blue balled: " + PlayState.deathCounter;
+		levelDeaths.text += ((PlayState.SONG.player2 == "nmi") ? "ブルーボールド: " : "Blue balled: ") + PlayState.deathCounter;
 		levelDeaths.scrollFactor.set();
-		levelDeaths.setFormat(Paths.font('vcr.ttf'), 32);
+		levelDeaths.setFormat(Paths.font(((PlayState.SONG.player2 == "nmi") ? 'AlibabaSansJP-Bold.ttf' : 'vcr.ttf')), 32);
 		levelDeaths.updateHitbox();
 		add(levelDeaths);
 
@@ -107,6 +107,9 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			var item:FNFSprite = new FNFSprite(0, 0);
 			// songText.isMenuItem = true;
+			if (PlayState.SONG.player2 == "nmi")
+			item.loadGraphic(Paths.image("pause/nmi/"+menuItems[i], "disk"));
+			else
 			item.loadGraphic(Paths.image("pause/"+menuItems[i], "disk"));
 			// songText.targetY = i;
 			item.x = -495 + (i * 440);

@@ -37,7 +37,7 @@ class StoryMenuState extends MusicBeatState
 
 	var txtTracklist:FlxText;
 
-	var grpWeekText:FlxTypedGroup<MenuItem>;
+	var grpWeekText:FlxTypedGroup<FlxSprite>;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
@@ -77,7 +77,7 @@ class StoryMenuState extends MusicBeatState
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
 
-		grpWeekText = new FlxTypedGroup<MenuItem>();
+		grpWeekText = new FlxTypedGroup<FlxSprite>();
 		add(grpWeekText);
 
 		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
@@ -102,19 +102,30 @@ class StoryMenuState extends MusicBeatState
 			{
 				loadedWeeks.push(weekFile);
 				WeekData.setDirectoryFromWeek(weekFile);
-				var weekThing:MenuItem = new MenuItem(0, bgSprite.y + 396, WeekData.weeksList[i]);
-				weekThing.y += ((weekThing.height + 20) * num);
-				weekThing.targetY = num;
-				grpWeekText.add(weekThing);
+				var boxThing = new FNFSprite(0, -19);
+				boxThing.frames = Paths.getSparrowAtlas("menus/itemBox", "disk");
+				boxThing.animation.addByPrefix("idle", "idle", 24);
+				boxThing.animation.addByPrefix("select", "seleccion", 24);
+				boxThing.playAnim("idle");
+				boxThing.addOffset("select", 12, 0);
+				boxThing.x = -94 +  (i * 310);
+			 //    boxThing.y -= 72;
+				boxThing.antialiasing = true;
+				boxThing.screenCenter(X);
+				boxThing.updateHitbox();
+				boxThing.setGraphicSize(Std.int(boxThing.width * 0.79));
+				boxThing.ID = i;
+	 
+				grpWeekText.add(boxThing);
 
-				weekThing.screenCenter(X);
-				weekThing.antialiasing = ClientPrefs.globalAntialiasing;
+				// weekThing.screenCenter(X);
+				// weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 				// weekThing.updateHitbox();
 
 				// Needs an offset thingie
 				if (isLocked)
 				{
-					var lock:FlxSprite = new FlxSprite(weekThing.width + 10 + weekThing.x);
+					var lock:FlxSprite = new FlxSprite(boxThing.width + 10 + boxThing.x);
 					lock.frames = ui_tex;
 					lock.animation.addByPrefix('lock', 'lock');
 					lock.animation.play('lock');
@@ -289,7 +300,7 @@ class StoryMenuState extends MusicBeatState
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
-				grpWeekText.members[curWeek].startFlashing();
+				// grpWeekText.members[curWeek].startFlashing();
 
 				for (char in grpWeekCharacters.members)
 				{
@@ -392,8 +403,8 @@ class StoryMenuState extends MusicBeatState
 		var unlocked:Bool = !weekIsLocked(leWeek.fileName);
 		for (item in grpWeekText.members)
 		{
-			item.targetY = bullShit - curWeek;
-			if (item.targetY == Std.int(0) && unlocked)
+			// item.targetY = bullShit - curWeek;
+			if (item.ID == curWeek && unlocked)
 				item.alpha = 1;
 			else
 				item.alpha = 0.6;

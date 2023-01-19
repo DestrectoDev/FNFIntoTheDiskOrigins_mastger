@@ -43,10 +43,13 @@ class SelectState extends MusicBeatState{
 	var app = Application.current.window;
     var escapeTxt:FlxText;
 	public static var firstStart:Bool = true;
+
+	var loadedWeeks:Array<WeekData> = [];
     
     override public function create(){
 
 		CoolUtil.resetNewMenuMusic(true);
+		WeekData.reloadWeekFiles(true);
 
 		boxGrp = new FlxTypedGroup<FNFSprite>();
 		lockGrp = new FlxTypedGroup<FNFSprite>();
@@ -68,13 +71,16 @@ class SelectState extends MusicBeatState{
         // }
 
 		for (i in 0...WeekData.weeksList.length){
+		   var weekFile:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
+           loadedWeeks.push(weekFile);
+           WeekData.setDirectoryFromWeek(weekFile);
            boxThing = new FNFSprite(0, -19);
            boxThing.frames = Paths.getSparrowAtlas("menus/itemBox", "disk");
            boxThing.animation.addByPrefix("idle", "idle", 24);
            boxThing.animation.addByPrefix("select", "seleccion", 24);
            boxThing.playAnim("idle");
            boxThing.addOffset("select", 12, 0);
-           boxThing.x = -94 +  (i * 310);
+           boxThing.x = -94 +  (i * 123);
         //    boxThing.y -= 72;
            boxThing.antialiasing = true;
            boxThing.screenCenter(X);

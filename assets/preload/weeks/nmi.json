@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"Hellish suffering",
+			"nmi",
+			[
+				135,
+				0,
+				20
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "HARD",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "CONFRONT YOUR FEARS",
+	"weekName": "NMI WEEK",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

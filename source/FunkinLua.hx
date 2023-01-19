@@ -952,7 +952,7 @@ class FunkinLua {
 				spr.loadGraphic(Paths.image(image), animated, gridX, gridY);
 			}
 		});
-		Lua_helper.add_callback(lua, "loadFrames", function(variable:String, image:String, spriteType:String = "sparrow") {
+		Lua_helper.add_callback(lua, "loadFrames", function(variable:String, image:String, library:String, spriteType:String = "sparrow") {
 			var killMe:Array<String> = variable.split('.');
 			var spr:FlxSprite = getObjectDirectly(killMe[0]);
 			if(killMe.length > 1) {
@@ -961,7 +961,7 @@ class FunkinLua {
 
 			if(spr != null && image != null && image.length > 0)
 			{
-				loadFrames(spr, image, spriteType);
+				loadFrames(spr, image, library, spriteType);
 			}
 		});
 
@@ -1732,24 +1732,24 @@ class FunkinLua {
 			}
 		});
 
-		Lua_helper.add_callback(lua, "makeLuaSprite", function(tag:String, image:String, x:Float, y:Float) {
+		Lua_helper.add_callback(lua, "makeLuaSprite", function(tag:String, image:String, library:String, x:Float, y:Float) {
 			tag = tag.replace('.', '');
 			resetSpriteTag(tag);
 			var leSprite:ModchartSprite = new ModchartSprite(x, y);
 			if(image != null && image.length > 0)
 			{
-				leSprite.loadGraphic(Paths.image(image));
+				leSprite.loadGraphic(Paths.image(image, library));
 			}
 			leSprite.antialiasing = ClientPrefs.globalAntialiasing;
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 			leSprite.active = true;
 		});
-		Lua_helper.add_callback(lua, "makeAnimatedLuaSprite", function(tag:String, image:String, x:Float, y:Float, ?spriteType:String = "sparrow") {
+		Lua_helper.add_callback(lua, "makeAnimatedLuaSprite", function(tag:String, image:String, library:String, x:Float, y:Float, ?spriteType:String = "sparrow") {
 			tag = tag.replace('.', '');
 			resetSpriteTag(tag);
 			var leSprite:ModchartSprite = new ModchartSprite(x, y);
 
-			loadFrames(leSprite, image, spriteType);
+			loadFrames(leSprite, image, library, spriteType);
 			leSprite.antialiasing = ClientPrefs.globalAntialiasing;
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 		});
@@ -2964,7 +2964,7 @@ class FunkinLua {
 		};
 	}
 
-	function loadFrames(spr:FlxSprite, image:String, spriteType:String)
+	function loadFrames(spr:FlxSprite, image:String, library:String, spriteType:String)
 	{
 		switch(spriteType.toLowerCase().trim())
 		{
@@ -2978,7 +2978,7 @@ class FunkinLua {
 				spr.frames = Paths.getPackerAtlas(image);
 
 			default:
-				spr.frames = Paths.getSparrowAtlas(image);
+				spr.frames = Paths.getSparrowAtlas(image, library);
 		}
 	}
 

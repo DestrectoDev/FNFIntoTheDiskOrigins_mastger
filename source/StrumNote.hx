@@ -18,6 +18,9 @@ class StrumNote extends FlxSprite
 	private var player:Int;
 	
 	public var texture(default, set):String = null;
+
+	public var penisAlpha:Float = 0.8;
+
 	private function set_texture(value:String):String {
 		if(texture != value) {
 			texture = value;
@@ -148,6 +151,12 @@ class StrumNote extends FlxSprite
 		animation.play(anim, force);
 		centerOffsets();
 		centerOrigin();
+
+		if (anim == "confirm"){
+			alpha = 1;
+		}else{
+			alpha = 1 * penisAlpha;
+		}
 		if(animation.curAnim == null || animation.curAnim.name == 'static') {
 			colorSwap.hue = 0;
 			colorSwap.saturation = 0;
